@@ -1,8 +1,13 @@
+SELECT
+	CONCAT(number, ' ', street) AS address,
+	city_id
+FROM
+	addresses
+WHERE
+	city_id % 2 = 0
+		and
+	city_id > 0
+ORDER BY
+	city_id
+;
 
-	-- ('Finance', 3),
-	-- ('Information Services', 42),
-	-- ('Document Control', 90),
-	-- ('Quality Assurance', 274),
-	-- ('Facilities and Maintenance', 218),
-	-- ('Shipping and Receiving', 85),
-	-- ('Executive', 109)
