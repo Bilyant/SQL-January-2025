@@ -1,5 +1,8 @@
 SELECT
 	id,
-	(side * height) / 2 AS area
+	side * height / 2 AS area
 FROM
-	triangles;
+	triangles
+ORDER BY
+	id
+;

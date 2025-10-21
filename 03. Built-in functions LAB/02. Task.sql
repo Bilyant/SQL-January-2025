@@ -1,5 +1,5 @@
 SELECT
-	REPLACE(title, 'The', '***')
+	REPLACE(title, 'The', '***') AS title
 FROM
 	books
 WHERE
