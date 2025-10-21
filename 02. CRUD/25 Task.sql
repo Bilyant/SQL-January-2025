@@ -1,7 +1,10 @@
-	-- ('Finance', 3),
-	-- ('Information Services', 42),
-	-- ('Document Control', 90),
-	-- ('Quality Assurance', 274),
-	-- ('Facilities and Maintenance', 218),
-	-- ('Shipping and Receiving', 85),
-	-- ('Executive', 109)
+CREATE VIEW
+	view_company_chart
+AS SELECT
+	full_name,
+	job_title
+FROM
+	company_chart
+WHERE
+	manager_id = 184
+;
