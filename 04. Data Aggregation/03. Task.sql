@@ -1,6 +1,6 @@
 SELECT
 	department_id,
-	sum(salary)
+	SUM(salary) AS total_salaries
 FROM
 	employees
 GROUP BY
@@ -8,3 +8,6 @@ GROUP BY
 ORDER BY
 	department_id
 ;
+
+
+-- SELECT * FROM employees;

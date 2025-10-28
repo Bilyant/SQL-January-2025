@@ -1,6 +1,6 @@
 SELECT
 	department_id,
-	max(salary)
+	MAX(salary) AS max_salary
 FROM
 	employees
 GROUP BY
@@ -8,3 +8,6 @@ GROUP BY
 ORDER BY
 	department_id
 ;
+
+
+-- SELECT * FROM employees;
