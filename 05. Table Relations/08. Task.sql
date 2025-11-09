@@ -1,4 +1,4 @@
-CREATE TABLE
+CREATE TABLE 
 	manufacturers (
 	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 	name VARCHAR(100)
@@ -19,6 +19,7 @@ CREATE TABLE
 
 CREATE TABLE
 	production_years (
+	id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 	established_on DATE,
 	manufacturer_id INT,
 
