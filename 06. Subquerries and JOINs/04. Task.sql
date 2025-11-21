@@ -6,4 +6,4 @@ WHERE
 	salary > (SELECT AVG(salary) FROM employees)
 ;
 
--- SELECT AVG(salary) FROM employees;
+-- SELECT AVG(salary) FROM employees; 
