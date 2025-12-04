@@ -72,3 +72,21 @@ $$
 	END;
 $$
 LANGUAGE plpgsql;
+
+-- ----------------------------------------------------------------------
+
+CREATE FUNCTION
+	get_town_by_id (id INT)
+RETURNS VARCHAR AS
+$$
+	DECLARE
+		town_name VARCHAR;
+	BEGIN
+		SELECT t.name
+		INTO town_name
+		FROM towns AS t
+		WHERE id = t.town_id;
+	RETURN town_name;
+	END;
+$$
+LANGUAGE plpgsql;

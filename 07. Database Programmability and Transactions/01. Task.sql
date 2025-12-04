@@ -1,46 +1,26 @@
 CREATE FUNCTION
-	fn_get_initials (
-	VARCHAR, VARCHAR
+	fn_count_employees_by_town(
+		town_name VARCHAR(20)
 	)
-RETURNS
-	VARCHAR(5)
-AS
+RETURNS INT AS
 $$
 	BEGIN
-		RETURN
-			CONCAT(LEFT($1, 1), '.', LEFT($2, 1), '.');
-	END
-$$
-LANGUAGE plpgsql;
-
--- ----------------------------------------------------------------------
-
-CREATE FUNCTION
-	fn_get_initials (VARCHAR, VARCHAR)
-RETURNS
-	VARCHAR(5) AS
-$$
-	DECLARE
-		first_name ALIAS FOR $1;
-		last_name ALIAS FOR $2;
-	BEGIN
-		RETURN
-			CONCAT(LEFT(first_name, 1), '.', LEFT(last_name, 1), '.');
-	END
-$$
-LANGUAGE plpgsql;
-
--- ----------------------------------------------------------------------
-
-CREATE FUNCTION fn_get_initials (
-	first_name VARCHAR,
-	last_name VARCHAR)
-RETURNS
-	VARCHAR(5) AS
-$$
-	BEGIN
-		RETURN
-			CONCAT(LEFT(first_name, 1), '.', LEFT(last_name, 1), '.');
-	END
+		RETURN (
+			SELECT
+				COUNT(a.town_id)
+			FROM
+				employees AS e
+			JOIN
+				addresses AS a
+			USING
+				(address_id)
+			JOIN
+				towns AS t
+			USING
+				(town_id)
+			WHERE
+				t.name = town_name
+		);
+	END;
 $$
 LANGUAGE plpgsql;
